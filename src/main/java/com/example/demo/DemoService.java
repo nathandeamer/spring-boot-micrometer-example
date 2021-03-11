@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import io.micrometer.core.annotation.Timed;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +15,6 @@ public class DemoService {
         this.registry = registry;
     }
 
-    @Timed(value="DEMO_Timed", description = "Demo")
     public String get() throws InterruptedException {
         registry.counter("DEMO_Counter").increment();
         Thread.sleep(random.nextInt(10) * 1000);
