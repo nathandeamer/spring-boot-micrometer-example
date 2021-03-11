@@ -17,4 +17,9 @@ public class DemoController {
         return demoService.get();
     }
 
+    @GetMapping("/error")
+    public void error() throws Exception {
+        throw new RuntimeException("Sorry, something went wrong");
+    }
+
 }
